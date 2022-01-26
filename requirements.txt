@@ -1,0 +1,2 @@
+pyyaml
+aliyun-log-python-sdk

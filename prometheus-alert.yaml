@@ -1,0 +1,10 @@
+groups:
+- name: alert
+  rules:
+  - alert: CacheMiss
+    expr: sum by (method) (rate(metastore_query_count{job="some_job", hit_cache="true"}[5m])) / sum by (method) (rate(metastore_query_count{job="some_job"}[5m])) * 100 < 85
+    for: 1m
+    labels:
+      severity: High
+    annotations:
+      description: Method {{ $labels.method }} cache hit rate is {{ $value }}
