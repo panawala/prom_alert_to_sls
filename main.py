@@ -177,8 +177,8 @@ def prometheus_rule_to_sls_alert(group_name,
         'noDataFire': False,
         'noDataSeverity': ALERT_SEVERITY_MIDDLE,
         'policyConfiguration': {
-            'alert_policy_id': alert_policy_id,
-            'action_policy_id': action_policy_id,
+            'alertPolicyId': alert_policy_id,
+            'actionPolicyId': action_policy_id,
             'repeatInterval': '1m',
             'useDefault': False
         }
@@ -258,7 +258,7 @@ if __name__ == '__main__':
     access_secret_key = '<sk>'
     action_policy_id = '<user define in sls>'
     alert_policy_id = 'sls.builtin.dynamic'
-    transform_alert_rules('prometheus-rules.yaml',
+    transform_alert_rules('prometheus-alert.yaml',
                           region,
                           metric_project,
                           metric_store,
